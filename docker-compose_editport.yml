@@ -47,10 +47,10 @@ services:
     networks:
       - app_net
     ports:
-      - "9203:9203"
-      - "9303:9303"
+      - "9200:9200"
+      - "9300:9300"
     healthcheck:
-      test: "curl -s http://localhost:9203/_cluster/health?pretty | grep status | grep -qE 'green|yellow' || exit 1"
+      test: "curl -s http://localhost:9200/_cluster/health?pretty | grep status | grep -qE 'green|yellow' || exit 1"
       interval: 15s
       timeout: 10s
       retries: 10
@@ -173,7 +173,7 @@ services:
       OM_DATABASE: ${OM_DATABASE:-openmetadata_db}
       # ElasticSearch Configurations
       ELASTICSEARCH_HOST: ${ELASTICSEARCH_HOST:- elasticsearch}
-      ELASTICSEARCH_PORT: ${ELASTICSEARCH_PORT:-9203}
+      ELASTICSEARCH_PORT: ${ELASTICSEARCH_PORT:-9200}
       ELASTICSEARCH_SCHEME: ${ELASTICSEARCH_SCHEME:-http}
       ELASTICSEARCH_USER: ${ELASTICSEARCH_USER:-""}
       ELASTICSEARCH_PASSWORD: ${ELASTICSEARCH_PASSWORD:-""}
@@ -387,7 +387,7 @@ services:
       OM_DATABASE: ${OM_DATABASE:-openmetadata_db}
       # ElasticSearch Configurations
       ELASTICSEARCH_HOST: ${ELASTICSEARCH_HOST:- elasticsearch}
-      ELASTICSEARCH_PORT: ${ELASTICSEARCH_PORT:-9203}
+      ELASTICSEARCH_PORT: ${ELASTICSEARCH_PORT:-9200}
       ELASTICSEARCH_SCHEME: ${ELASTICSEARCH_SCHEME:-http}
       ELASTICSEARCH_USER: ${ELASTICSEARCH_USER:-""}
       ELASTICSEARCH_PASSWORD: ${ELASTICSEARCH_PASSWORD:-""}
@@ -524,7 +524,7 @@ services:
     expose:
       - 8080
     ports:
-      - "8080:8080"
+      - "18080:8080"
     networks:
       - app_net
     volumes:
