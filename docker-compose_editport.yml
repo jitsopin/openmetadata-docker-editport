@@ -1,14 +1,14 @@
 
  
-version: "3.9"
- 
 # ---------- Networks ----------
 
 networks:
-
   data_net:
-
     driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.25.0.0/24"
  
 # ---------- Volumes ----------
 
