@@ -1,0 +1,4 @@
+mkdir -p ingestion
+docker compose up -d
+รอ health check ผ่าน แล้วตามด้วย 
+docker exec -it openmetadata_ingestion openmetadata-ingestion run -c /ingestion/openlineage.yaml
