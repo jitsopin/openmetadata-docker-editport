@@ -1,4 +1,9 @@
 mkdir -p ingestion
 docker compose up -d
 รอ health check ผ่าน แล้วตามด้วย 
+
 docker exec -it openmetadata_ingestion openmetadata-ingestion run -c /ingestion/openlineage.yaml
+URL ที่ใช้
+OpenMetadata UI: http://67130701719.sit.kmutt.ac.th:8585
+Marquez Web UI: http://67130701719.sit.kmutt.ac.th:5300
+Marquez API (optional exposed): http://67130701719.sit.kmutt.ac.th:5500
