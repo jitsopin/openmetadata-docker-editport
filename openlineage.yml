@@ -1,0 +1,23 @@
+# Source: Read OpenLineage events from Marquez
+source:
+  type: openlineage
+  serviceName: marquez-openlineage
+  serviceConnection:
+    config:
+      type: OpenLineage
+      # Use the Marquez API service name in the same Docker network
+      hostPort: http://marquez-api:5000
+      authProvider: no-auth
+      # token: "<PUT_YOUR_TOKEN_IF_ENABLED>"
+ 
+# Sink: Push entities/lineage to OpenMetadata
+sink:
+  type: metadata-rest
+  config: {}
+ 
+workflowConfig:
+  loggerLevel: INFO
+  openMetadataServerConfig:
+    hostPort: http://openmetadata-server:8585
+    authProvider: no-auth
+    # If OM has auth, configure provider and credentials here
